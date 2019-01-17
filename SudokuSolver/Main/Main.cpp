@@ -8,6 +8,15 @@ int main()
 	brd.getInput();
 	brd.print();
 
+	if (brd.isValid())
+	{
+		std::cout << "It's correct!" << std::endl;
+	}
+	else
+	{
+		std::cout << "It's wrong!" << std::endl;
+	}
+
 	std::getchar();
 	return 0;
 }

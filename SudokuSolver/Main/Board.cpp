@@ -34,3 +34,17 @@ void Board::setAttr()
 		boxes[i].setBoxesArray(board, i);
 	}
 }
+
+bool Board::isValid() const
+{
+	for (int i = 0; i < 9; i++)
+	{
+		if (!rows[i].isValid() ||
+			!columns[i].isValid() ||
+			!boxes[i].isValid() )
+		{
+			return false;
+		}
+	}
+	return true;
+}
