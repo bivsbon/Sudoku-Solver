@@ -9,7 +9,7 @@ bool Array::has(const int num) const
 	return false;
 }
 
-bool Array::isValid() const
+bool Array::isCorrect() const
 {
 	if (has(0))
 		return false;

@@ -6,12 +6,18 @@ void Board::getInput()
 {
 	for (int i = 0; i < 9; i++)
 	{
-		std::cout << "Input row" << i + 1 << ": ";
+		std::cout << "Input row " << i + 1 << ": ";
 		for (int j = 0; j < 9; j++)
 			std::cin >> board[i][j];
 	}
+}
 
-	setAttr();
+void Board::InitValidBoard()
+{
+	for (int i = 0; i < 9; i++)
+		for (int j = 0; j < 9; j++)
+			if (board[i][j] != 0)
+				validBoard[i][j] == true;
 }
 
 void Board::print() const
@@ -35,13 +41,15 @@ void Board::setAttr()
 	}
 }
 
-bool Board::isValid() const
+bool Board::isValid()
 {
+	setAttr();
+
 	for (int i = 0; i < 9; i++)
 	{
-		if (!rows[i].isValid() ||
-			!columns[i].isValid() ||
-			!boxes[i].isValid() )
+		if (!rows[i].isCorrect() ||
+			!columns[i].isCorrect() ||
+			!boxes[i].isCorrect() )
 		{
 			return false;
 		}
