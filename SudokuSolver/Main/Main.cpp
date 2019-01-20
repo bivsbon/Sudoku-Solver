@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	Board brd;
+	brd.getInput();
 	brd.InitValidBoard();
 	brd.solve();
 

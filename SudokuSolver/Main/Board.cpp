@@ -4,12 +4,16 @@
 
 void Board::getInput()
 {
+	std::cout << "Type in input row by row, seperate by spacebar and enter at the end of rows" << std::endl;
+	std::cout << std::endl;
 	for (int i = 0; i < 9; i++)
 	{
 		std::cout << "Input row " << i + 1 << ": ";
 		for (int j = 0; j < 9; j++)
 			std::cin >> board[i][j];
 	}
+
+	InitValidBoard();
 }
 
 void Board::InitValidBoard()
@@ -40,32 +44,6 @@ void Board::print() const
 			std::cout << board[i][j] << " ";
 		std::cout << std::endl;
 	}
-}
-
-void Board::setAttr()
-{
-	for (int i = 0; i < 9; i++)
-	{
-		rows[i].setRowsArray(board, i);
-		columns[i].setColumnsArray(board, i);
-		boxes[i].setBoxesArray(board, i);
-	}
-}
-
-bool Board::isValid()
-{
-	setAttr();
-
-	for (int i = 0; i < 9; i++)
-	{
-		if (!rows[i].isCorrect() ||
-			!columns[i].isCorrect() ||
-			!boxes[i].isCorrect() )
-		{
-			return false;
-		}
-	}
-	return true;
 }
 
 bool Board::checkSquare(const int i, const int j) const
