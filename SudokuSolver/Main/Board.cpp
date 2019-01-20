@@ -2,15 +2,17 @@
 #include "Board.h"
 #include <iostream>
 
+using namespace std;
+
 void Board::getInput()
 {
-	std::cout << "Type in input row by row, seperate by spacebar and enter at the end of rows" << std::endl;
-	std::cout << std::endl;
+	cout << "Type in input row by row, seperate by spacebar and enter at the end of rows" << endl;
+	cout << endl;
 	for (int i = 0; i < 9; i++)
 	{
-		std::cout << "Input row " << i + 1 << ": ";
+		cout << "Input row " << i + 1 << ": ";
 		for (int j = 0; j < 9; j++)
-			std::cin >> board[i][j];
+			cin >> board[i][j];
 	}
 
 	InitValidBoard();
@@ -28,21 +30,39 @@ void Board::printValid() const
 {
 	for (int i = 0; i < 9; i++)
 	{
-		std::cout << "Row " << i + 1 << ":   ";
+		cout << "Row " << i + 1 << ":   ";
 		for (int j = 0; j < 9; j++)
-			std::cout << validBoard[i][j] << " ";
-		std::cout << std::endl;
+			cout << validBoard[i][j] << " ";
+		cout << endl;
 	}
 }
 
 void Board::print() const
 {
+	char vLine = static_cast<char>(179);
+	char hLine = static_cast<char>(196);
+	char cross = static_cast<char>(197);
+
 	for (int i = 0; i < 9; i++)
-	{
-		std::cout << "Row " << i + 1 << ":   ";
+	{ 
+		if (i % 3 == 0 && i != 0)
+		{
+			for (int a = 0; a < 21; a++)
+			{
+				if (a % 7 == 0 && a != 0)
+					cout << cross;
+				cout << hLine;
+			}
+			cout << endl;
+		}
+
 		for (int j = 0; j < 9; j++)
-			std::cout << board[i][j] << " ";
-		std::cout << std::endl;
+		{
+			if (j % 3 == 0 && j != 0)
+				cout << " " << vLine;
+			cout << " " << board[i][j];
+		}
+		cout << endl;
 	}
 }
 

@@ -8,8 +8,10 @@ int main()
 {
 	Board brd;
 	brd.getInput();
-	brd.InitValidBoard();
 	brd.solve();
-
+	cout << endl;
+	cout << "Solved!";
+	
+	getchar();
 	return 0;
 }
