@@ -7,9 +7,8 @@ using namespace std;
 int main()
 {
 	Board brd;
-	brd.print();
-
-	cout << brd.checkSquare(0, 2) << endl;
+	brd.InitValidBoard();
+	brd.solve();
 
 	return 0;
 }

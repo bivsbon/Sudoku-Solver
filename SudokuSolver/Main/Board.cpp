@@ -17,7 +17,18 @@ void Board::InitValidBoard()
 	for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 9; j++)
 			if (board[i][j] != 0)
-				validBoard[i][j] == true;
+				validBoard[i][j] = true;
+}
+
+void Board::printValid() const
+{
+	for (int i = 0; i < 9; i++)
+	{
+		std::cout << "Row " << i + 1 << ":   ";
+		for (int j = 0; j < 9; j++)
+			std::cout << validBoard[i][j] << " ";
+		std::cout << std::endl;
+	}
 }
 
 void Board::print() const
@@ -88,3 +99,39 @@ bool Board::checkSquare(const int i, const int j) const
 
 	return true;
 }
+
+void Board::solve()
+{
+	int pos = 0;
+	int direction = 1;
+	while (pos < 81)
+	{
+		
+		const int i = pos / 9;
+		const int j = pos % 9;
+
+		if (validBoard[i][j])
+		{
+			;
+		}
+		else
+		{
+			do
+			{
+				board[i][j]++;
+			} while (board[i][j] < 10 && !checkSquare(i, j));
+			direction = 1;
+
+			if (board[i][j] == 10)
+			{
+				board[i][j] = 0;
+				direction = -1;
+			}
+		}
+		system("cls");
+		print();
+
+		pos += direction;
+	}
+}
+
