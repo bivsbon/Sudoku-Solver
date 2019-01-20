@@ -56,3 +56,35 @@ bool Board::isValid()
 	}
 	return true;
 }
+
+bool Board::checkSquare(const int i, const int j) const
+{
+
+	//Check the row
+	for (int a = 0; a < 9; a++)
+	{
+		if (a == j) continue;
+		else if (board[i][a] == board[i][j]) return false;
+	}
+
+	// Check the column
+	for (int a = 0; a < 9; a++)
+	{
+		if (a == i) continue;
+		else if (board[a][j] == board[i][j]) return false;
+	}
+
+	//Check the box
+	const int boxIndex = (i / 3) * 3 + (j / 3);
+	const int topLeftX = (boxIndex / 3) * 3;
+	const int topLeftY = (boxIndex % 3) * 3;
+
+	for (int a = 0; a < 3; a++)
+		for (int b = 0; b < 3; b++)
+		{
+			if (topLeftX + a == i && topLeftY + b == j) continue;
+			else if (board[topLeftX + a][topLeftY + b] == board[i][j]) return false;
+		}
+
+	return true;
+}

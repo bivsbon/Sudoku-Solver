@@ -2,18 +2,14 @@
 #include <iostream>
 #include "Board.h"
 
+using namespace std;
+
 int main()
 {
 	Board brd;
 	brd.print();
 
-	if (brd.isValid())
-	{
-		std::cout << "It's correct!" << std::endl;
-	}
-	else
-	{
-		std::cout << "It's wrong!" << std::endl;
-	}
+	cout << brd.checkSquare(0, 2) << endl;
+
 	return 0;
 }

@@ -10,6 +10,7 @@ public:
 	void print() const;
 	void setAttr();
 	bool isValid();
+	bool checkSquare(const int i, const int j) const;
 private:
 	bool validBoard[9][9] = { false };
 	int board[9][9] = { {1, 7, 0, 9, 8, 0, 0, 0, 0},
