@@ -5,7 +5,6 @@
 int main()
 {
 	Board brd;
-	brd.getInput();
 	brd.print();
 
 	if (brd.isValid())
@@ -16,7 +15,5 @@ int main()
 	{
 		std::cout << "It's wrong!" << std::endl;
 	}
-
-	std::getchar();
 	return 0;
 }
