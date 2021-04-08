@@ -1,4 +1,4 @@
-# Sudoku-Solver (classic 9x9 sudoku)
+# Sudoku-Solver (classic 9x9 sudoku) Visual Studio Project
 Help you solve sudoku in the least interesting way !
 
 This sudoku solver program uses backtracking algorithm.
